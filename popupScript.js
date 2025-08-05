@@ -10,7 +10,7 @@ const copyAllBtn = document.getElementById('copyAllBtn');
 function renderSavedText(){
     savedTextEle.innerHTML = ""; // clear old content first
     for(let i=0; i<savedStore.length; i++){ //render latest lists
-        savedTextEle.innerHTML += `<li><a href="${savedStore[i]}">${savedStore[i]}</a></li>`
+        savedTextEle.innerHTML += `<li><a href="${savedStore[i]}" target="_blank">${savedStore[i]}</a></li>`
     }
 }
 
