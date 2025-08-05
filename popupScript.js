@@ -4,7 +4,8 @@ const inputEle = document.querySelector('#inputBox input');
 const saveInputBtn = document.getElementById('saveInputBtn');
 const saveTabBtn = document.getElementById('saveTabBtn');
 const clearBtn = document.getElementById('clearBtn');
-const savedTextEle = document.querySelector('#savedText ul') 
+const savedTextEle = document.querySelector('#savedText ul');
+const copyAllBtn = document.getElementById('copyAllBtn');
 
 function renderSavedText(){
     savedTextEle.innerHTML = ""; // clear old content first
@@ -41,6 +42,25 @@ clearBtn.addEventListener("click", function(){
     renderSavedText();
 })
 
+//Copy All button Event listener
+copyAllBtn.addEventListener("click", function(){
+    if(savedStore.length === 0){
+        alert("Nothing to copy! 😵‍💫")
+    }
+    else{
+        const allLinks = savedStore.join("\n"); //join all saved urls with new lines between each 
+
+        // navigator.clipboard.writeText() API to copy and using .then instead of using async/await and try catch (same but lesser/easier way)
+        navigator.clipboard.writeText(allLinks).then(() => {
+            alert("All links copied to clipboard! 😺");
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+            alert("Failed to copy links! 😿");
+        });
+    }
+})
 
 
+//Render any saved content on startup
+renderSavedText(); 
 
