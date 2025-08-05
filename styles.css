@@ -7,7 +7,7 @@
 
 html, body {
     width: 350px;        /* common popup width */
-    height: 300px;   /* ensures not just a white strip */
+    height: 350px;   /* ensures not just a white strip */
     margin: 0;
     padding: 0;
     font-family: "Caveat", cursive, Arial, sans-serif;
@@ -50,8 +50,9 @@ html, body {
     }
   }
 
-#buttons{
+.buttons{
   display: flex;
+  justify-content: center;
   padding: 1px 10px;
   gap: 10px  
 }
@@ -88,17 +89,34 @@ button {
 
 
   #savedText{
-    margin-top: 20px;
-    max-height: 200px; /* adjust so it fits inside main 500px popup size */
+    margin-top: 10px;
+    max-height: 160px; /* adjust so it fits inside main 500px popup size */
     overflow-y: auto;
+    margin-bottom: 8px;
   }
 
   #savedText ul{
     list-style: none;
     color: white;
     margin: 0px;
-    padding-left: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 2em;
+  }
+
+  #savedText ul li{
+    border: 3px solid rgb(211, 151, 205);
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(123, 56, 113);
+    white-space: nowrap;
+    overflow-x: auto;      /* allow horizontal scroll */
+    overflow-y: hidden;
+  }
+
+  li::-webkit-scrollbar {
+    display: none;         /* hide scrollbar in Chrome/Edge/Safari */
   }
 
   #savedText ul li a{
